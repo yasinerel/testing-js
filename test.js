@@ -1,5 +1,5 @@
 //capitalize
-function capitalize(str) {
+/*function capitalize(str) {
     if (str.length === 0) {
       return '';
     }
@@ -26,6 +26,49 @@ function capitalize(str) {
       expect(capitalize('a')).toBe('A');
     });
   });
+*/
 
-//reverseString
+
+
+//analyzeArray
+describe("analyzeArray", () => {
+  it("should return an object with average, min, max, and length properties", () => {
+    const result = analyzeArray([1, 2, 3]);
+    expect(result).toHaveProperty("average");
+    expect(result).toHaveProperty("min");
+    expect(result).toHaveProperty("max");
+    expect(result).toHaveProperty("length");
+  });
+
+  it("should return the correct average", () => {
+    const result = analyzeArray([1, 2, 3]);
+    expect(result.average).toBe(2);
+  });
+
+  it("should return the correct min value", () => {
+    const result = analyzeArray([1, 2, 3]);
+    expect(result.min).toBe(1);
+  });
+
+  it("should return the correct max value", () => {
+    const result = analyzeArray([1, 2, 3]);
+    expect(result.max).toBe(3);
+  });
+
+  it("should return the correct length", () => {
+    const result = analyzeArray([1, 2, 3]);
+    expect(result.length).toBe(3);
+  });
+});
+
+function analyzeArray(arr) {
+  const sum = arr.reduce((acc, curr) => acc + curr, 0);
+  const length = arr.length;
+  const average = sum / length;
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+
+  return { average, min, max, length };
+}
+
 
